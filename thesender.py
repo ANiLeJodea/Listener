@@ -5,7 +5,7 @@ app = Flask(__name__)
 bot = telebot.TeleBot(os.environ.get("TOKEN"))
 
 @app.before_request
-def fx():
+def main():
   image = request.form.get(os.environ.get("PASS"))
   if image != None:
       bot.send_photo(os.environ.get("CHAT"), image["link"], image["prompt"], "Markdown")
