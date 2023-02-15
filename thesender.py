@@ -1,4 +1,5 @@
-from flask import Flask, request, Response
+from flask import Flask
+from flask import request
 import os
 import telebot
 app = Flask(__name__)
