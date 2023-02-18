@@ -13,7 +13,7 @@ def main():
                         document=request.form.get("link"),
                         caption=request.form.get("prompt"),
                         parse_mode="Markdown")
-      bot.send_document(request.form.get(os.environ.get("USERNAME")),
+      bot.send_document(os.environ.get("USERNAME"),
                         document=request.form.get("link"),
                         caption=request.form.get("prompt"),
                         parse_mode="Markdown")
