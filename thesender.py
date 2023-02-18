@@ -9,14 +9,16 @@ bot = telebot.TeleBot(os.environ.get("TOKEN"))
 @app.before_request
 def main():
     if request.form.get(os.environ.get("PASS")) != None:
-      bot.send_document(request.form.get("user"),
-                        document=request.form.get("link"),
-                        caption=request.form.get("prompt"),
-                        parse_mode="Markdown")
-      bot.send_document(os.environ.get("USERNAME"),
-                        document=request.form.get("link"),
-                        caption=request.form.get("prompt"),
-                        parse_mode="Markdown")
+        link = request.form.get("link")
+        prompt = request.form.get("prompt")
+        bot.send_document(request.form.get("user"),
+                          document=link,
+                          caption=prompt,
+                          parse_mode="Markdown")
+        bot.send_document(os.environ.get("USERNAME"),
+                          document=link,
+                          caption=prompt,
+                          parse_mode="Markdown")
     return ""
 
 
